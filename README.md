@@ -8,23 +8,23 @@ A beginner-friendly template for building interactive graphics and games using P
 
 ## Recent update ( 25.12.2023 )
 
-- 🆕 Updated to Pixi v7: The latest version of Pixi.js brings enhanced features and performance improvements
+-   🆕 Updated to Pixi v7: The latest version of Pixi.js brings enhanced features and performance improvements
 
-- 🔧 Stability Overhaul: Moved from swc to ts-loader for improved stability and compatibility
+-   🔧 Stability Overhaul: Moved from swc to ts-loader for improved stability and compatibility
 
-- Revised and Updated Dependencies: All package dependencies have been reviewed and updated to their latest versions for optimal performance and security.
+-   Revised and Updated Dependencies: All package dependencies have been reviewed and updated to their latest versions for optimal performance and security.
 
 ## Features
 
-- 🔰 - Beginner-friendly setup and structure.
-- 🚀 - Optimized build times.
-- 🛠 - Full TypeScript support for robust type-checking.
-- ✈️ - Live reload for efficient development workflow.
-- 📝 - Consistent code style using Prettier and Eslint
+-   🔰 - Beginner-friendly setup and structure.
+-   🚀 - Optimized build times.
+-   🛠 - Full TypeScript support for robust type-checking.
+-   ✈️ - Live reload for efficient development workflow.
+-   📝 - Consistent code style using Prettier and Eslint
 
 ## Usage
 
-### Click on the green button "Use this template" on top of the repo or  
+### Click on the green button "Use this template" on top of the repo or
 
 Simply copy paste this and start coding
 
@@ -34,8 +34,8 @@ Simply copy paste this and start coding
 
 ## Commands
 
-- `npm run build` - starts build procedure
-- `npm run start` - start watching for files and open's server on localhost:8080
-- `npm run lint` - generate code coverage report
+-   `npm run build` - starts build procedure
+-   `npm run start` - start watching for files and open's server on localhost:8080
+-   `npm run lint` - generate code coverage report
 
 For vscode users - ctrl ( or ⌘ ) + shift + b will run package.json's dev script ( it is set as default vscode task )
