@@ -1,0 +1,19 @@
+# Node.js
+node_modules
+
+# Visual Studio Code
+.vscode/
+
+# IDE-specific files
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+coverage
+dist/*
+.cache
+.env
+.eslintcache
