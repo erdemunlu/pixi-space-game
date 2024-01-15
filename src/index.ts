@@ -1,12 +1,7 @@
-import "pixi-spine";
 import "./style.css";
-import { Application, Assets } from "pixi.js";
-import { getSpine } from "./utils/spine-example";
-import { createBird } from "./utils/create-bird";
-import { attachConsole } from "./utils/attach-console";
-
-const gameWidth = 1280;
-const gameHeight = 720;
+import { Application /*, Assets*/ } from "pixi.js";
+import { gameOptions } from "./gameConfig";
+import Game from "./Game";
 
 console.log(
     `%cPixiJS V7\nTypescript Boilerplate%c ${VERSION} %chttp://www.pixijs.com %c❤️`,
@@ -17,39 +12,26 @@ console.log(
 );
 
 const app = new Application<HTMLCanvasElement>({
-    backgroundColor: 0xba0232,
-    width: gameWidth,
-    height: gameHeight,
+    backgroundColor: gameOptions.backgroundColor,
+    width: gameOptions.width,
+    height: gameOptions.height,
 });
 
 window.onload = async (): Promise<void> => {
-    await loadGameAssets();
+    //await loadGameAssets();
 
     document.body.appendChild(app.view);
 
     resizeCanvas();
 
-    const birdFromSprite = createBird();
-    birdFromSprite.anchor.set(0.5, 0.5);
-    birdFromSprite.position.set(gameWidth / 2, gameHeight / 4);
-
-    const spineExample = await getSpine();
-
-    app.stage.addChild(birdFromSprite);
-    app.stage.addChild(spineExample);
-    app.stage.interactive = true;
-
-    if (VERSION.includes("d")) {
-        // if development version
-        attachConsole(app.stage, gameWidth, gameHeight);
-    }
+    new Game(app);
 };
-
+/*
 async function loadGameAssets(): Promise<void> {
     const manifest = {
         bundles: [
             {
-                name: "bird",
+                name: "assets",
                 assets: [
                     {
                         name: "bird",
@@ -72,12 +54,12 @@ async function loadGameAssets(): Promise<void> {
     await Assets.init({ manifest });
     await Assets.loadBundle(["bird", "pixie"]);
 }
-
+*/
 function resizeCanvas(): void {
     const resize = () => {
         app.renderer.resize(window.innerWidth, window.innerHeight);
-        app.stage.scale.x = window.innerWidth / gameWidth;
-        app.stage.scale.y = window.innerHeight / gameHeight;
+        app.stage.scale.x = window.innerWidth / gameOptions.width;
+        app.stage.scale.y = window.innerHeight / gameOptions.height;
     };
 
     resize();
