@@ -14,7 +14,7 @@ export default class OrangeAttackShip extends AttackShip implements IDestroyable
 
         this.setSprite(Sprite.from("assets/ships/orange_attack_ship.png"));
         this.sprite.anchor.set(0.5, 0.5);
-        this.sprite.position.set(400, 500);
+        this.position.set(400, 500);
 
         this.setStrategies();
     }
