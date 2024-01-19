@@ -13,7 +13,7 @@ export default class Game {
     playerShip: AttackShip;
     inputHandler: InputHandler;
     shooting: boolean;
-    bulletPool: BulletPool
+    bulletPool: BulletPool;
     bulletControl: BulletControl;
     lastFire = 0;
 
@@ -39,7 +39,7 @@ export default class Game {
             this.playerShip.position.x -= 5;
         }
 
-        if (this.inputHandler.isKeyDown(' ')) {
+        if (this.inputHandler.isKeyDown(" ")) {
             if (this.app.ticker.lastTime > this.lastFire) {
                 let appTime = this.app.ticker.lastTime;
                 this.lastFire = appTime + this.playerShip?.attackStrategy.fireInterval;
