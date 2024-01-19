@@ -1,36 +1,32 @@
 export default class InputHandler {
-    keys: { [key: string]: boolean };
+  private keys: { [key: string]: boolean } = {};
 
-    constructor() {
-        this.keys = {
-            ArrowRight: false,
-            ArrowLeft: false,
-            a: false,
-            d: false,
-        };
+  constructor() {
+    window.addEventListener("keydown", this.keyDown.bind(this));
+    window.addEventListener("keyup", this.keyUp.bind(this));
+  }
 
-        window.addEventListener("keydown", this.keyDown.bind(this));
-        window.addEventListener("keyup", this.keyUp.bind(this));
-    }
+  keyDown(event: KeyboardEvent): void {
+    this.keys[event.key.toLowerCase()] = true;
+  }
 
-    keyDown(event: KeyboardEvent): void {
-        this.keys[event.key] = true;
-    }
+  keyUp(event: KeyboardEvent): void {
+    this.keys[event.key.toLowerCase()] = false;
+  }
 
-    keyUp(event: KeyboardEvent): void {
-        this.keys[event.key] = false;
+  right(): boolean {
+    if (this.keys["arrowright"] || this.keys["d"]) {
+      return true;
     }
-
-    right(): boolean {
-        if (this.keys["ArrowRight"] || this.keys["d"]) {
-            return true;
-        }
-        return false;
+    return false;
+  }
+  left(): boolean {
+    if (this.keys["arrowleft"] || this.keys["a"]) {
+      return true;
     }
-    left(): boolean {
-        if (this.keys["ArrowLeft"] || this.keys["a"]) {
-            return true;
-        }
-        return false;
-    }
+    return false;
+  }
+  isKeyDown(key: string): boolean {
+    return !!this.keys[key];
+  }
 }
