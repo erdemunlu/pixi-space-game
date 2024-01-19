@@ -13,7 +13,7 @@ export default class BulletControl {
 
     update() {
         for (let i = 0; i < this.activeBullets.length; i++) {
-            let bullet = this.activeBullets[i];
+            const bullet = this.activeBullets[i];
             bullet.position = new Point(bullet.position.x, bullet.position.y + bullet.speed * bullet.direction);
 
             if (this.isBulletOutOfScreen(bullet)) {

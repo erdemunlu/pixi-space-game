@@ -41,7 +41,7 @@ export default class Game {
 
         if (this.inputHandler.isKeyDown(" ")) {
             if (this.app.ticker.lastTime > this.lastFire) {
-                let appTime = this.app.ticker.lastTime;
+                const appTime = this.app.ticker.lastTime;
                 this.lastFire = appTime + this.playerShip?.attackStrategy.fireInterval;
                 this.playerShip?.attackStrategy.attack();
             }
