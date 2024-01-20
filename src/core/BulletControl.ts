@@ -1,7 +1,6 @@
 import Bullet from "../objects/Bullet";
 import Game from "../Game";
 import { Point } from "pixi.js";
-import BulletPool from "../Helpers/BulletPool";
 export default class BulletControl {
     static Instance: BulletControl;
     activeBullets: Bullet[];
