@@ -1,6 +1,7 @@
 import AttackShip from "./AttackShip";
 import { Sprite } from "pixi.js";
 import AttackStrategyOrangeShip from "../../../Strategies/AttackStrategyOrangeShip";
+import MoveStrategyOrangeShip from "../../../Strategies/MoveStrategyOrangeShip";
 import IDestroyable from "../../../Interfaces/IDestroyable";
 
 export default class OrangeAttackShip extends AttackShip implements IDestroyable {
@@ -10,8 +11,6 @@ export default class OrangeAttackShip extends AttackShip implements IDestroyable
         super();
 
         this.health = 100;
-        this.attackDamage = 10;
-
         this.setSprite(Sprite.from("assets/ships/orange_attack_ship.png"));
         this.sprite.anchor.set(0.5, 0.5);
         this.position.set(400, 500);
@@ -21,5 +20,6 @@ export default class OrangeAttackShip extends AttackShip implements IDestroyable
 
     setStrategies() {
         this.attackStrategy = new AttackStrategyOrangeShip();
+        this.moveStrategy = new MoveStrategyOrangeShip();
     }
 }

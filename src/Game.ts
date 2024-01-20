@@ -5,6 +5,7 @@ import World from "./core/World";
 import InputHandler from "./core/InputHandler";
 import BulletControl from "./core/BulletControl";
 import BulletPool from "./Helpers/BulletPool";
+import { Direction } from "./Helpers/Direction";
 
 export default class Game {
     static Instance: Game;
@@ -33,12 +34,12 @@ export default class Game {
     gameLoop() {
         if (this.inputHandler.right()) {
             this.playerShip.clampPositionToScreen();
-            this.playerShip.position.x += 5;
+            this.playerShip?.moveStrategy.move(Direction.Right);
         }
 
         if (this.inputHandler.left()) {
             this.playerShip.clampPositionToScreen();
-            this.playerShip.position.x -= 5;
+            this.playerShip?.moveStrategy.move(Direction.Left);
         }
 
         if (this.inputHandler.isKeyDown(" ")) {
