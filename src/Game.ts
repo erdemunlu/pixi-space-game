@@ -34,19 +34,19 @@ export default class Game {
     gameLoop() {
         if (this.inputHandler.right()) {
             this.playerShip.clampPositionToScreen();
-            this.playerShip?.moveStrategy.move(Direction.Right);
+            this.playerShip.moveStrategy?.move(Direction.Right);
         }
 
         if (this.inputHandler.left()) {
             this.playerShip.clampPositionToScreen();
-            this.playerShip?.moveStrategy.move(Direction.Left);
+            this.playerShip.moveStrategy?.move(Direction.Left);
         }
 
         if (this.inputHandler.isKeyDown(" ")) {
             if (this.app.ticker.lastTime > this.lastFire) {
                 const appTime = this.app.ticker.lastTime;
                 this.lastFire = appTime + this.playerShip?.attackStrategy.fireInterval;
-                this.playerShip?.attackStrategy.attack();
+                this.playerShip.attackStrategy?.attack();
             }
         }
     }
