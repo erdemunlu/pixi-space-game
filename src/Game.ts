@@ -16,7 +16,7 @@ export default class Game {
     shooting: boolean;
     bulletPool: BulletPool;
     bulletControl: BulletControl;
-    lastFire = 0;
+    lastFireTime = 0;
 
     constructor(app: Application) {
         Game.Instance = this;
@@ -43,9 +43,9 @@ export default class Game {
         }
 
         if (this.inputHandler.isKeyDown(" ")) {
-            if (this.app.ticker.lastTime > this.lastFire) {
+            if (this.app.ticker.lastTime > this.lastFireTime) {
                 const appTime = this.app.ticker.lastTime;
-                this.lastFire = appTime + this.playerShip?.attackStrategy.fireInterval;
+                this.lastFireTime = appTime + this.playerShip?.attackStrategy.fireInterval;
                 this.playerShip.attackStrategy?.attack();
             }
         }
