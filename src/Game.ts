@@ -13,7 +13,6 @@ export default class Game {
     world: World;
     playerShip: AttackShip;
     inputHandler: InputHandler;
-    shooting: boolean;
     bulletPool: BulletPool;
     bulletControl: BulletControl;
     lastFireTime = 0;
@@ -28,7 +27,6 @@ export default class Game {
         this.bulletControl = new BulletControl();
 
         this.app.ticker.add(this.gameLoop.bind(this));
-        this.shooting = false;
     }
 
     gameLoop() {
