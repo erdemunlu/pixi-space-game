@@ -5,6 +5,7 @@ import World from "./core/World";
 import InputHandler from "./core/InputHandler";
 import BulletControl from "./core/BulletControl";
 import BulletPool from "./Helpers/BulletPool";
+import FireIntervalControl from "./core/FireIntervalControl";
 import { Direction } from "./Helpers/Direction";
 
 export default class Game {
@@ -15,13 +16,14 @@ export default class Game {
     inputHandler: InputHandler;
     bulletPool: BulletPool;
     bulletControl: BulletControl;
-    lastFireTime = 0;
+    fireIntervalControl: FireIntervalControl;
 
     constructor(app: Application) {
         Game.Instance = this;
         this.app = app;
         this.world = new World();
         this.playerShip = new OrangeAttackShip();
+        this.fireIntervalControl = new FireIntervalControl();
         this.inputHandler = new InputHandler();
         this.bulletPool = new BulletPool();
         this.bulletControl = new BulletControl();
@@ -41,9 +43,9 @@ export default class Game {
         }
 
         if (this.inputHandler.isKeyDown(" ")) {
-            if (this.app.ticker.lastTime > this.lastFireTime) {
+            if (this.app.ticker.lastTime > this.fireIntervalControl.getLastFireTime()) {
                 const appTime = this.app.ticker.lastTime;
-                this.lastFireTime = appTime + this.playerShip?.attackStrategy.fireInterval;
+                this.fireIntervalControl.updateLastFireTime(appTime + this.playerShip.attackStrategy?.fireInterval);
                 this.playerShip.attackStrategy?.attack();
             }
         }
