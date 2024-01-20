@@ -24,6 +24,13 @@ export default class GameObject extends Container {
         Game.Instance.app.stage.addChild(this);
     }
 
+    isOutOfScreen(): boolean {
+        const screenWidth = Game.Instance.world.width;
+        const screenHeight = Game.Instance.world.height;
+
+        return this.x < 0 || this.x > screenWidth || this.y < 0 || this.y > screenHeight;
+    }
+
     destroy(options: IDestroyOptions) {
         super.destroy(options);
     }
