@@ -32,10 +32,12 @@ export default class Game {
 
     gameLoop() {
         if (this.inputHandler.right()) {
+            this.playerShip.clampPositionToScreen();
             this.playerShip.position.x += 5;
         }
 
         if (this.inputHandler.left()) {
+            this.playerShip.clampPositionToScreen();
             this.playerShip.position.x -= 5;
         }
 

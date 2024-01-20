@@ -31,6 +31,18 @@ export default class GameObject extends Container {
         return this.x < 0 || this.x > screenWidth || this.y < 0 || this.y > screenHeight;
     }
 
+    clampPositionToScreen(): void {
+        const screenWidth = Game.Instance.world.width;
+
+        if (this.position.x < this.width) {
+            this.position.x = this.width;
+        }
+
+        if (this.position.x > screenWidth - this.width) {
+            this.position.x = screenWidth - this.width;
+        }
+    }
+
     destroy(options: IDestroyOptions) {
         super.destroy(options);
     }
