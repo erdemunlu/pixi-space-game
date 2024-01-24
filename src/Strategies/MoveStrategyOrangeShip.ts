@@ -9,6 +9,6 @@ export default class MoveStrategyOrangeShip implements IMoveStrategy {
     }
 
     move(direction: number): void {
-        Game.Instance.playerShip.position.x += this.speed * direction;
+        Game.Instance.player.ship.position.x += this.speed * direction;
     }
 }

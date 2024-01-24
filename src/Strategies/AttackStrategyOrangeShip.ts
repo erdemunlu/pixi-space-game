@@ -19,8 +19,8 @@ export default class AttackStrategyOrangeShip implements IAttackStrategy {
 
     initializeBullet(bullet: Bullet): void {
         const point = new Point(
-            Game.Instance.playerShip.position.x + this.bulletPoint.x,
-            Game.Instance.playerShip.position.y + this.bulletPoint.y,
+            Game.Instance.player.ship.position.x + this.bulletPoint.x,
+            Game.Instance.player.ship.position.y + this.bulletPoint.y,
         );
 
         bullet.initialize(Sprite.from(this.bulletSpritePath), point, Direction.Up, this.bulletSpeed, this.bulletDamage);
