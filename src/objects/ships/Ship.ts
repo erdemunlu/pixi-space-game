@@ -15,7 +15,6 @@ export abstract class Ship extends GameObject implements IAttack, IMove, IHittab
     }
 
     abstract attack(): void;
-    abstract getFireInterval(): number;
-    abstract move(number: number): void;
+    abstract move(): void;
     abstract getHit(damage: number): void;
 }

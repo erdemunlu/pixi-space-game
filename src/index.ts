@@ -1,5 +1,5 @@
 import "./style.css";
-import { Application /*, Assets*/ } from "pixi.js";
+import { Application, Assets } from "pixi.js";
 import { gameOptions } from "./gameConfig";
 import Game from "./Game";
 
@@ -18,7 +18,7 @@ const app = new Application<HTMLCanvasElement>({
 });
 
 window.onload = async (): Promise<void> => {
-    //await loadGameAssets();
+    await loadGameAssets();
 
     document.body.appendChild(app.view);
 
@@ -26,7 +26,7 @@ window.onload = async (): Promise<void> => {
 
     new Game(app);
 };
-/*
+
 async function loadGameAssets(): Promise<void> {
     const manifest = {
         bundles: [
@@ -34,17 +34,8 @@ async function loadGameAssets(): Promise<void> {
                 name: "assets",
                 assets: [
                     {
-                        name: "bird",
-                        srcs: "./assets/simpleSpriteSheet.json",
-                    },
-                ],
-            },
-            {
-                name: "pixie",
-                assets: [
-                    {
-                        name: "pixie",
-                        srcs: "./assets/spine-assets/pixie.json",
+                        name: "assets",
+                        srcs: "./assets/spritesheet.json",
                     },
                 ],
             },
@@ -52,9 +43,9 @@ async function loadGameAssets(): Promise<void> {
     };
 
     await Assets.init({ manifest });
-    await Assets.loadBundle(["bird", "pixie"]);
+    await Assets.loadBundle(["assets"]);
 }
-*/
+
 function resizeCanvas(): void {
     const resize = () => {
         app.renderer.resize(window.innerWidth, window.innerHeight);

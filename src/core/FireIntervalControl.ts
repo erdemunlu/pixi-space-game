@@ -1,3 +1,5 @@
+import Game from "../Game";
+
 export default class FireIntervalControl {
     private _lastFireTime: number;
 
@@ -13,7 +15,8 @@ export default class FireIntervalControl {
         this._lastFireTime = 0;
     }
 
-    updateLastFireTime(newLastFireTime: number): void {
-        this._lastFireTime = newLastFireTime;
+    updateLastFireTime(fireInterval: number): void {
+        const appTime = Game.Instance.app.ticker.lastTime;
+        this._lastFireTime = appTime + fireInterval;
     }
 }

@@ -2,7 +2,7 @@ import { Point } from "pixi.js";
 import Bullet from "../objects/Bullet";
 
 export default interface IAttackStrategy {
-    bulletSpritePath: string;
+    bulletSpriteName: string;
     bulletPoint: Point;
     bulletSpeed: number;
     bulletDamage: number;
