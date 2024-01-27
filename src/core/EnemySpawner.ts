@@ -1,8 +1,9 @@
 import Game from "../Game";
 import { EnemyShipWeak } from "../objects/ships/EnemyShipWeak";
+import { Ship } from "../objects/ships/Ship";
 
 export class EnemySpawner {
-    enemyShip: EnemyShipWeak;
+    enemyShip: Ship;
 
     constructor() {
         this.enemyShip = new EnemyShipWeak();
