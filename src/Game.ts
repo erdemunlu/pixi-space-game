@@ -6,6 +6,7 @@ import { LevelController } from "./core/LevelController";
 import { MenuManager } from "./core/MenuManager";
 import { StateManager } from "./core/StateManager";
 import { GameState } from "./Helpers/GameState";
+import { AudioManager } from "./core/AudioManager";
 
 export default class Game {
     static Instance: Game;
@@ -16,10 +17,12 @@ export default class Game {
     inputHandler: InputHandler;
     menuManager: MenuManager;
     stateManager: StateManager;
+    audioManager: AudioManager;
 
     constructor(app: Application) {
         Game.Instance = this;
         this.app = app;
+        this.audioManager = new AudioManager();
         this.world = new World();
         this.stateManager = new StateManager(GameState.Menu);
         this.levelController = new LevelController();

@@ -10,6 +10,8 @@ export abstract class Ship extends GameObject implements IAttack, IMove, IHittab
     attackStrategy!: IAttackStrategy;
     moveStrategy!: IMoveStrategy;
     health!: number;
+    getHitSoundName: string = "gethit.ogg";
+    deathSoundName: string = "death.wav";
     name!: string;
 
     constructor() {

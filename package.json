@@ -27,6 +27,7 @@
     "dependencies": {
         "@pixi/layers": "^2.1.0",
         "core-js": "^3.34.0",
+        "howler": "^2.2.4",
         "pixi-console": "^4.0.0",
         "pixi-spine": "^4.0.4",
         "pixi.js": "^7.3.3"
@@ -35,6 +36,7 @@
         "@babel/core": "7.23.6",
         "@babel/preset-env": "7.23.6",
         "@babel/runtime": "7.23.6",
+        "@types/howler": "^2.2.11",
         "@types/node": "^20.10.5",
         "@types/offscreencanvas": "^2019.7.3",
         "@typescript-eslint/eslint-plugin": "^6.18.1",

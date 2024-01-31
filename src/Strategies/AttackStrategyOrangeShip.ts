@@ -10,6 +10,7 @@ export default class AttackStrategyOrangeShip implements IAttackStrategy {
     bulletSpeed: number = 3;
     bulletDamage: number = 50;
     fireInterval: number = 300;
+    attackSoundName: string = "shot_orange.wav";
 
     attack(): void {
         if (Game.Instance.inputHandler.isKeyDown(" ")) {
@@ -17,6 +18,7 @@ export default class AttackStrategyOrangeShip implements IAttackStrategy {
                 Game.Instance.player.fireIntervalControl.updateLastFireTime(this.fireInterval);
                 const bullet = Game.Instance.levelController.getBulletFromPool();
                 this.initializeBullet(bullet);
+                Game.Instance.audioManager.playSound(this.attackSoundName);
             }
         }
     }

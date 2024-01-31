@@ -7,6 +7,7 @@ export default interface IAttackStrategy {
     bulletSpeed: number;
     bulletDamage: number;
     fireInterval: number;
+    attackSoundName: string;
     attack(): void;
     initializeBullet(bullet: Bullet): void;
 }

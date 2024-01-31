@@ -11,6 +11,7 @@ export class AttackStrategyEnemyWeakShip implements IAttackStrategy {
     bulletSpeed: number = 1;
     bulletDamage: number = 50;
     fireInterval: number = 2000;
+    attackSoundName: string = "shot_enemy_weak.wav";
     ship: EnemyShipWeak;
     constructor(ship: EnemyShipWeak) {
         this.ship = ship;
@@ -21,6 +22,7 @@ export class AttackStrategyEnemyWeakShip implements IAttackStrategy {
             this.ship.fireIntervalControl.updateLastFireTime(this.fireInterval);
             const bullet = Game.Instance.levelController.getBulletFromPool();
             this.initializeBullet(bullet);
+            Game.Instance.audioManager.playSound(this.attackSoundName);
         }
     }
     initializeBullet(bullet: Bullet): void {
