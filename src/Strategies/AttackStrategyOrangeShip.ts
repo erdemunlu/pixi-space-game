@@ -2,12 +2,11 @@ import { Point, Sprite, Texture } from "pixi.js";
 import IAttackStrategy from "../Interfaces/IAttackStrategy";
 import Game from "../Game";
 import Bullet from "../objects/Bullet";
-import BulletPool from "../Helpers/BulletPool";
 import { Direction } from "../Helpers/Direction";
 
 export default class AttackStrategyOrangeShip implements IAttackStrategy {
     bulletSpriteName: string = "orange_shot.png";
-    bulletPoint: Point = new Point(-7, -35);
+    bulletPoint: Point = new Point(0, -35);
     bulletSpeed: number = 3;
     bulletDamage: number = 50;
     fireInterval: number = 300;
@@ -16,7 +15,7 @@ export default class AttackStrategyOrangeShip implements IAttackStrategy {
         if (Game.Instance.inputHandler.isKeyDown(" ")) {
             if (Game.Instance.player.canAttack()) {
                 Game.Instance.player.fireIntervalControl.updateLastFireTime(this.fireInterval);
-                const bullet = BulletPool.Instance.getBulletFromPool();
+                const bullet = Game.Instance.levelController.getBulletFromPool();
                 this.initializeBullet(bullet);
             }
         }

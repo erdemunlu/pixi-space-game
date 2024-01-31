@@ -4,13 +4,15 @@ import IMoveStrategy from "../Interfaces/IMoveStrategy";
 import { EnemyShipWeak } from "../objects/ships/EnemyShipWeak";
 
 export class MoveStrategyEnemyWeakShip implements IMoveStrategy {
-    speed: number = 1;
+    speed: number;
     enemyShipWeak: EnemyShipWeak;
-    direction: number = Direction.Right;
+    direction: number;
     screenWidth: number;
 
     constructor(enemyShipWeak: EnemyShipWeak) {
         this.enemyShipWeak = enemyShipWeak;
+        this.speed = enemyShipWeak.speed;
+        this.direction = enemyShipWeak.moveDirection;
         this.screenWidth = Game.Instance.world.width;
     }
 

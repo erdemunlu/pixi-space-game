@@ -1,15 +1,10 @@
 import Bullet from "../objects/Bullet";
-import BulletControl from "../core/BulletControl";
 
-export default class BulletPool {
-    static Instance: BulletPool;
-    bulletPool: Bullet[];
+export class BulletPool {
+    bulletPool: Bullet[] = [];
     bulletAmount: number = 50;
 
     constructor() {
-        BulletPool.Instance = this;
-        this.bulletPool = [];
-
         this.createBulletPool();
     }
 
@@ -26,7 +21,6 @@ export default class BulletPool {
         for (let i = 0; i < this.bulletPool.length; i++) {
             if (!this.bulletPool[i].visible) {
                 this.bulletPool[i].visible = true;
-                BulletControl.Instance.addBulletToActiveBullets(this.bulletPool[i]);
                 return this.bulletPool[i];
             }
         }
@@ -34,7 +28,6 @@ export default class BulletPool {
         const newBullet = new Bullet();
         this.bulletPool.push(newBullet);
         newBullet.visible = true;
-        BulletControl.Instance.addBulletToActiveBullets(newBullet);
         return newBullet;
     }
 

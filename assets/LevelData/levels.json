@@ -1,0 +1,42 @@
+[
+    {
+        "levelNumber": 1,
+        "ships": [
+            {
+                "name": "EnemyShipWeak",
+                "health": 100,
+                "speed": 0,
+                "direction": 1,
+                "position": {
+                    "x": 400,
+                    "y": 50
+                }
+            }
+        ]
+    },
+    {
+        "levelNumber": 2,
+        "ships": [
+            {
+                "name": "EnemyShipWeak",
+                "health": 100,
+                "speed": 1,
+                "direction": -1,
+                "position": {
+                    "x": 350,
+                    "y": 50
+                }
+            },
+            {
+                "name": "EnemyShipWeak",
+                "health": 100,
+                "speed": 1,
+                "direction": 1,
+                "position": {
+                    "x": 450,
+                    "y": 50
+                }
+            }
+        ]
+    }
+]
