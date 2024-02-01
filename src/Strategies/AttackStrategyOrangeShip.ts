@@ -1,8 +1,8 @@
 import { Point, Sprite, Texture } from "pixi.js";
 import IAttackStrategy from "../Interfaces/IAttackStrategy";
 import Game from "../Game";
-import Bullet from "../objects/Bullet";
 import { Direction } from "../Helpers/Direction";
+import FireIntervalControl from "../core/FireIntervalControl";
 
 export default class AttackStrategyOrangeShip implements IAttackStrategy {
     bulletSpriteName: string = "orange_shot.png";
@@ -10,24 +10,25 @@ export default class AttackStrategyOrangeShip implements IAttackStrategy {
     bulletSpeed: number = 3;
     bulletDamage: number = 50;
     fireInterval: number = 300;
+    fireIntervalControl: FireIntervalControl;
     attackSoundName: string = "shot_orange.wav";
+    constructor() {
+        this.fireIntervalControl = new FireIntervalControl();
+    }
 
-    attack(): void {
+    attack(shipPoint: Point): void {
         if (Game.Instance.inputHandler.isKeyDown(" ")) {
-            if (Game.Instance.player.canAttack()) {
-                Game.Instance.player.fireIntervalControl.updateLastFireTime(this.fireInterval);
-                const bullet = Game.Instance.levelController.getBulletFromPool();
-                this.initializeBullet(bullet);
+            if (this.canAttack()) {
+                this.fireIntervalControl.updateLastFireTime(this.fireInterval);
+                this.initializeBullet(shipPoint);
                 Game.Instance.audioManager.playSound(this.attackSoundName);
             }
         }
     }
 
-    initializeBullet(bullet: Bullet): void {
-        const point = new Point(
-            Game.Instance.player.ship.position.x + this.bulletPoint.x,
-            Game.Instance.player.ship.position.y + this.bulletPoint.y,
-        );
+    initializeBullet(shipPoint: Point): void {
+        const bullet = Game.Instance.levelController.getBulletFromPool();
+        const point = new Point(shipPoint.x + this.bulletPoint.x, shipPoint.y + this.bulletPoint.y);
 
         bullet.initialize(
             new Sprite(Texture.from(this.bulletSpriteName)),
@@ -36,5 +37,14 @@ export default class AttackStrategyOrangeShip implements IAttackStrategy {
             this.bulletSpeed,
             this.bulletDamage,
         );
+    }
+    canAttack(): boolean {
+        if (!Game.Instance.player.isAlive()) {
+            return false;
+        }
+        if (Game.Instance.app.ticker.lastTime > this.fireIntervalControl.getLastFireTime()) {
+            return true;
+        }
+        return false;
     }
 }

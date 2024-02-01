@@ -1,6 +1,7 @@
 import Game from "../Game";
 import { Direction } from "../Helpers/Direction";
 import IMoveStrategy from "../Interfaces/IMoveStrategy";
+import { Ship } from "../objects/ships/Ship";
 
 export default class MoveStrategyOrangeShip implements IMoveStrategy {
     speed: number;
@@ -9,14 +10,14 @@ export default class MoveStrategyOrangeShip implements IMoveStrategy {
         this.speed = 5;
     }
 
-    move(): void {
+    move(ship: Ship): void {
         if (Game.Instance.inputHandler.right()) {
-            Game.Instance.player.ship.position.x += this.speed * Direction.Right;
-            Game.Instance.player.ship.clampPositionToScreen();
+            ship.position.x += this.speed * Direction.Right;
+            ship.clampPositionToScreen();
         }
         if (Game.Instance.inputHandler.left()) {
-            Game.Instance.player.ship.position.x += this.speed * Direction.Left;
-            Game.Instance.player.ship.clampPositionToScreen();
+            ship.position.x += this.speed * Direction.Left;
+            ship.clampPositionToScreen();
         }
     }
 }

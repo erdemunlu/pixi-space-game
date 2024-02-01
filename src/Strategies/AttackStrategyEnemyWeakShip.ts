@@ -1,9 +1,8 @@
 import { Point, Sprite, Texture } from "pixi.js";
 import IAttackStrategy from "../Interfaces/IAttackStrategy";
-import Bullet from "../objects/Bullet";
 import { Direction } from "../Helpers/Direction";
-import { EnemyShipWeak } from "../objects/ships/EnemyShipWeak";
 import Game from "../Game";
+import FireIntervalControl from "../core/FireIntervalControl";
 
 export class AttackStrategyEnemyWeakShip implements IAttackStrategy {
     bulletSpriteName: string = "blue_shot.png";
@@ -12,21 +11,21 @@ export class AttackStrategyEnemyWeakShip implements IAttackStrategy {
     bulletDamage: number = 50;
     fireInterval: number = 2000;
     attackSoundName: string = "shot_enemy_weak.wav";
-    ship: EnemyShipWeak;
-    constructor(ship: EnemyShipWeak) {
-        this.ship = ship;
+    fireIntervalControl: FireIntervalControl;
+    constructor() {
+        this.fireIntervalControl = new FireIntervalControl();
     }
 
-    attack(): void {
-        if (Game.Instance.app.ticker.lastTime > this.ship.fireIntervalControl.getLastFireTime()) {
-            this.ship.fireIntervalControl.updateLastFireTime(this.fireInterval);
-            const bullet = Game.Instance.levelController.getBulletFromPool();
-            this.initializeBullet(bullet);
+    attack(shipPoint: Point): void {
+        if (Game.Instance.app.ticker.lastTime > this.fireIntervalControl.getLastFireTime()) {
+            this.fireIntervalControl.updateLastFireTime(this.fireInterval);
+            this.initializeBullet(shipPoint);
             Game.Instance.audioManager.playSound(this.attackSoundName);
         }
     }
-    initializeBullet(bullet: Bullet): void {
-        const point = new Point(this.ship.position.x + this.bulletPoint.x, this.ship.position.y + this.bulletPoint.y);
+    initializeBullet(shipPoint: Point): void {
+        const bullet = Game.Instance.levelController.getBulletFromPool();
+        const point = new Point(shipPoint.x + this.bulletPoint.x, shipPoint.y + this.bulletPoint.y);
 
         bullet.initialize(
             new Sprite(Texture.from(this.bulletSpriteName)),

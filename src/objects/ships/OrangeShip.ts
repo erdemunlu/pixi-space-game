@@ -18,13 +18,13 @@ export default class OrangeAttackShip extends Ship {
         this.position.set(400, 500);
     }
     attack(): void {
-        this.attackStrategy.attack();
+        this.attackStrategy.attack(this.position);
     }
     getFireInterval(): number {
         return this.attackStrategy.fireInterval;
     }
     move(): void {
-        this.moveStrategy.move();
+        this.moveStrategy.move(this);
     }
     getHit(damage: number): void {
         this.health -= damage;

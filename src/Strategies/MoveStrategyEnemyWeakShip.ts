@@ -1,33 +1,31 @@
 import Game from "../Game";
 import { Direction } from "../Helpers/Direction";
 import IMoveStrategy from "../Interfaces/IMoveStrategy";
-import { EnemyShipWeak } from "../objects/ships/EnemyShipWeak";
+import { Ship } from "../objects/ships/Ship";
 
 export class MoveStrategyEnemyWeakShip implements IMoveStrategy {
     speed: number;
-    enemyShipWeak: EnemyShipWeak;
-    direction: number;
+    moveDirection: number;
     screenWidth: number;
 
-    constructor(enemyShipWeak: EnemyShipWeak) {
-        this.enemyShipWeak = enemyShipWeak;
-        this.speed = enemyShipWeak.speed;
-        this.direction = enemyShipWeak.moveDirection;
+    constructor(speed: number, moveDirection: number) {
+        this.speed = speed;
+        this.moveDirection = moveDirection;
         this.screenWidth = Game.Instance.world.width;
     }
 
-    move(): void {
-        if (this.direction === Direction.Right) {
-            this.enemyShipWeak.position.x += this.speed * Direction.Right;
-            if (this.enemyShipWeak.position.x > this.screenWidth - this.enemyShipWeak.width) {
-                this.enemyShipWeak.position.x = this.screenWidth - this.enemyShipWeak.width;
-                this.direction = Direction.Left;
+    move(ship: Ship): void {
+        if (this.moveDirection === Direction.Right) {
+            ship.position.x += this.speed * Direction.Right;
+            if (ship.position.x > this.screenWidth - ship.width) {
+                ship.position.x = this.screenWidth - ship.width;
+                this.moveDirection = Direction.Left;
             }
         } else {
-            this.enemyShipWeak.position.x += this.speed * Direction.Left;
-            if (this.enemyShipWeak.position.x < this.enemyShipWeak.width) {
-                this.enemyShipWeak.position.x = this.enemyShipWeak.width;
-                this.direction = Direction.Right;
+            ship.position.x += this.speed * Direction.Left;
+            if (ship.position.x < ship.width) {
+                ship.position.x = ship.width;
+                this.moveDirection = Direction.Right;
             }
         }
     }

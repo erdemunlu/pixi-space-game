@@ -2,13 +2,11 @@ import { Sprite, Texture } from "pixi.js";
 import { Ship } from "./Ship";
 import { MoveStrategyEnemyWeakShip } from "../../Strategies/MoveStrategyEnemyWeakShip";
 import { AttackStrategyEnemyWeakShip } from "../../Strategies/AttackStrategyEnemyWeakShip";
-import FireIntervalControl from "../../core/FireIntervalControl";
 
 export class EnemyShipWeak extends Ship {
     name: string = EnemyShipWeak.name;
-    speed!: number;
-    moveDirection!: number;
-    fireIntervalControl: FireIntervalControl;
+    speed: number;
+    moveDirection: number;
 
     constructor(health: number, speed: number, moveDirection: number, position: { x: number; y: number }) {
         super();
@@ -16,24 +14,23 @@ export class EnemyShipWeak extends Ship {
         this.speed = speed;
         this.moveDirection = moveDirection;
         this.position.set(position.x, position.y);
-        this.fireIntervalControl = new FireIntervalControl();
         this.setVisual();
         this.setStrategies();
     }
 
     attack(): void {
-        this.attackStrategy.attack();
+        this.attackStrategy.attack(this.position);
     }
     move(): void {
-        this.moveStrategy.move();
+        this.moveStrategy.move(this);
     }
     getHit(damage: number): void {
         this.health -= damage;
     }
 
     setStrategies() {
-        this.moveStrategy = new MoveStrategyEnemyWeakShip(this);
-        this.attackStrategy = new AttackStrategyEnemyWeakShip(this);
+        this.moveStrategy = new MoveStrategyEnemyWeakShip(this.speed, this.moveDirection);
+        this.attackStrategy = new AttackStrategyEnemyWeakShip();
     }
     setVisual() {
         this.setSprite(new Sprite(Texture.from("enemy_ship_weak.png")));

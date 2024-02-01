@@ -1,5 +1,5 @@
 import { Point } from "pixi.js";
-import Bullet from "../objects/Bullet";
+import FireIntervalControl from "../core/FireIntervalControl";
 
 export default interface IAttackStrategy {
     bulletSpriteName: string;
@@ -8,6 +8,6 @@ export default interface IAttackStrategy {
     bulletDamage: number;
     fireInterval: number;
     attackSoundName: string;
-    attack(): void;
-    initializeBullet(bullet: Bullet): void;
+    fireIntervalControl: FireIntervalControl;
+    attack(shipPoint: Point): void;
 }

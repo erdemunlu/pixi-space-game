@@ -1,7 +1,6 @@
 import { Ship } from "../objects/ships/Ship";
 import OrangeShip from "../objects/ships/OrangeShip";
 import Game from "../Game";
-import FireIntervalControl from "./FireIntervalControl";
 import { GameState } from "../Helpers/GameState";
 import { Text } from "pixi.js";
 import { defaultTextStyle } from "../Helpers/styles";
@@ -9,9 +8,7 @@ import { defaultTextStyle } from "../Helpers/styles";
 export class Player {
     ship!: Ship;
     healthText: Text = new Text("");
-    fireIntervalControl: FireIntervalControl;
     constructor() {
-        this.fireIntervalControl = new FireIntervalControl();
         this.initializeHealthText();
         Game.Instance.app.ticker.add(this.gameLoop.bind(this));
     }
@@ -23,14 +20,12 @@ export class Player {
         this.ship?.move();
         this.ship?.attack();
     }
-    canAttack(): boolean {
+    isAlive(): boolean {
         if (this.ship.health <= 0) {
             return false;
         }
-        if (Game.Instance.app.ticker.lastTime > this.fireIntervalControl.getLastFireTime()) {
-            return true;
-        }
-        return false;
+
+        return true;
     }
     updateHealthText() {
         this.healthText.text = `HEALTH: ${this.ship.health}`;
