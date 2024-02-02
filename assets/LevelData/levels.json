@@ -12,7 +12,11 @@
                     "y": 50
                 }
             }
-        ]
+        ],
+        "player": {
+            "name": "OrangeShip",
+            "health": 100
+        }
     },
     {
         "levelNumber": 2,
@@ -37,6 +41,68 @@
                     "y": 50
                 }
             }
-        ]
+        ],
+        "player": {
+            "name": "GreenShip",
+            "health": 100
+        }
+    },
+    {
+        "levelNumber": 3,
+        "ships": [
+            {
+                "name": "EnemyShipStrong",
+                "health": 100,
+                "speed": 2,
+                "direction": 1,
+                "position": {
+                    "x": 400,
+                    "y": 50
+                }
+            }
+        ],
+        "player": {
+            "name": "BlueShip",
+            "health": 100
+        }
+    },
+    {
+        "levelNumber": 4,
+        "ships": [
+            {
+                "name": "EnemyShipWeak",
+                "health": 100,
+                "speed": 0,
+                "direction": 1,
+                "position": {
+                    "x": 200,
+                    "y": 150
+                }
+            },
+            {
+                "name": "EnemyShipWeak",
+                "health": 100,
+                "speed": 0,
+                "direction": 1,
+                "position": {
+                    "x": 400,
+                    "y": 250
+                }
+            },
+            {
+                "name": "EnemyShipWeak",
+                "health": 100,
+                "speed": 0,
+                "direction": 1,
+                "position": {
+                    "x": 600,
+                    "y": 350
+                }
+            }
+        ],
+        "player": {
+            "name": "GreenShip",
+            "health": 120
+        }
     }
 ]

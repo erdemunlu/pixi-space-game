@@ -5,12 +5,13 @@ import Game from "../Game";
 import FireIntervalControl from "../core/FireIntervalControl";
 
 export class AttackStrategyEnemyWeakShip implements IAttackStrategy {
-    bulletSpriteName: string = "blue_shot.png";
+    bulletSpriteName: string = "blue_strong_shot.png";
     bulletPoint: Point = new Point(0, 70);
-    bulletSpeed: number = 1;
-    bulletDamage: number = 50;
-    fireInterval: number = 2000;
+    bulletSpeed: number = 4;
+    bulletDamage: number = 10;
+    fireInterval: number = 750;
     attackSoundName: string = "shot_enemy_weak.wav";
+    attackSoundVolume: number = 0.1;
     fireIntervalControl: FireIntervalControl;
     constructor() {
         this.fireIntervalControl = new FireIntervalControl();
@@ -20,7 +21,7 @@ export class AttackStrategyEnemyWeakShip implements IAttackStrategy {
         if (Game.Instance.app.ticker.lastTime > this.fireIntervalControl.getLastFireTime()) {
             this.fireIntervalControl.updateLastFireTime(this.fireInterval);
             this.initializeBullet(shipPoint);
-            Game.Instance.audioManager.playSound(this.attackSoundName);
+            Game.Instance.audioManager.playSound(this.attackSoundName, this.attackSoundVolume);
         }
     }
     initializeBullet(shipPoint: Point): void {
@@ -34,5 +35,6 @@ export class AttackStrategyEnemyWeakShip implements IAttackStrategy {
             this.bulletSpeed,
             this.bulletDamage,
         );
+        bullet.sprite.rotation = Math.PI;
     }
 }

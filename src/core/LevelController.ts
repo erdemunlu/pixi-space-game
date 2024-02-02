@@ -1,5 +1,6 @@
 import { EnemyController } from "./EnemyController";
 import { EnemyShipWeak } from "../objects/ships/EnemyShipWeak";
+import { EnemyShipStrong } from "../objects/ships/EnemyShipStrong";
 import { LevelsData } from "./LevelsData";
 import { BulletController } from "./BulletController";
 import { BulletPool } from "../Helpers/BulletPool";
@@ -7,6 +8,9 @@ import Bullet from "../objects/Bullet";
 import { Ship } from "../objects/ships/Ship";
 import Game from "../Game";
 import { GameState } from "../Helpers/GameState";
+import OrangeShip from "../objects/ships/OrangeShip";
+import GreenShip from "../objects/ships/GreenShip";
+import BlueShip from "../objects/ships/BlueShip";
 
 export class LevelController {
     levelsData: LevelsData;
@@ -45,7 +49,26 @@ export class LevelController {
                     shipData.position,
                 );
                 ships.push(newEnemyShip);
+            } else if (levelData.ships[i].name === EnemyShipStrong.name) {
+                const shipData = levelData.ships[i];
+                const newEnemyShip = new EnemyShipStrong(
+                    shipData.health,
+                    shipData.speed,
+                    shipData.direction,
+                    shipData.position,
+                );
+                ships.push(newEnemyShip);
             }
+        }
+        if (levelData.player.name === OrangeShip.name) {
+            const playerShip = new OrangeShip();
+            Game.Instance.player.initializeShip(playerShip, levelData.player.health);
+        } else if (levelData.player.name === GreenShip.name) {
+            const playerShip = new GreenShip();
+            Game.Instance.player.initializeShip(playerShip, levelData.player.health);
+        } else if (levelData.player.name === BlueShip.name) {
+            const playerShip = new BlueShip();
+            Game.Instance.player.initializeShip(playerShip, levelData.player.health);
         }
 
         this.enemyController = new EnemyController(ships);

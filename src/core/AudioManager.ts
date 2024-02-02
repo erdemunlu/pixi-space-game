@@ -14,10 +14,10 @@ export class AudioManager {
         sound.play();
     }
 
-    playSound(soundName: string) {
+    playSound(soundName: string, soundVolume: number = 1) {
         const sound = new Howl({
             src: [`./assets/Audio/Sounds/${soundName}`],
-            volume: 1,
+            volume: soundVolume,
         });
         sound.play();
     }

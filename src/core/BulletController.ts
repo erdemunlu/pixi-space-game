@@ -52,7 +52,6 @@ export class BulletController {
         for (let i = 0; i < this.activeBullets.length; i++) {
             const bullet = this.activeBullets[i];
             bullet.position = new Point(bullet.position.x, bullet.position.y + bullet.speed * bullet.direction);
-
             if (bullet.isOutOfScreen()) {
                 this.removeBulletFromActiveBullets(i);
                 //Game.Instance.levelController.bulletPool.getBulletInfo();

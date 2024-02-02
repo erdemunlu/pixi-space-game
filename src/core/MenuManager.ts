@@ -34,7 +34,6 @@ export class MenuManager {
 
     onStartClicked(): void {
         Game.Instance.stateManager.setState(GameState.Playing);
-        Game.Instance.player.initializeShip();
         Game.Instance.levelController.initializeLevel();
     }
     initializeCurrentLevelText(): void {

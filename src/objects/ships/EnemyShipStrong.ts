@@ -1,11 +1,11 @@
 import { Sprite, Texture } from "pixi.js";
 import { Ship } from "./Ship";
-import { MoveStrategyEnemyWeakShip } from "../../Strategies/MoveStrategyEnemyWeakShip";
-import { AttackStrategyEnemyWeakShip } from "../../Strategies/AttackStrategyEnemyWeakShip";
+import { MoveStrategyEnemyStrongShip } from "../../Strategies/MoveStrategyEnemyStrongShip";
+import { AttackStrategyEnemyStrongShip } from "../../Strategies/AttackStrategyEnemyStrongShip";
 import Game from "../../Game";
 
-export class EnemyShipWeak extends Ship {
-    name: string = EnemyShipWeak.name;
+export class EnemyShipStrong extends Ship {
+    name: string = EnemyShipStrong.name;
     speed: number;
     moveDirection: number;
 
@@ -33,11 +33,11 @@ export class EnemyShipWeak extends Ship {
     }
 
     setStrategies() {
-        this.moveStrategy = new MoveStrategyEnemyWeakShip(this.speed, this.moveDirection);
-        this.attackStrategy = new AttackStrategyEnemyWeakShip();
+        this.moveStrategy = new MoveStrategyEnemyStrongShip(this.speed, this.moveDirection);
+        this.attackStrategy = new AttackStrategyEnemyStrongShip();
     }
     setVisual() {
-        this.setSprite(new Sprite(Texture.from("enemy_ship_weak.png")));
+        this.setSprite(new Sprite(Texture.from("enemy_ship_strong.png")));
         this.sprite.anchor.set(0.5, 0.5);
     }
 }

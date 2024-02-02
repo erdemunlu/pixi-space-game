@@ -3,15 +3,16 @@ import IAttackStrategy from "../Interfaces/IAttackStrategy";
 import Game from "../Game";
 import { Direction } from "../Helpers/Direction";
 import FireIntervalControl from "../core/FireIntervalControl";
+import { gsap } from "gsap";
 
-export default class AttackStrategyOrangeShip implements IAttackStrategy {
-    bulletSpriteName: string = "orange_shot.png";
+export default class AttackStrategyBlueShip implements IAttackStrategy {
+    bulletSpriteName: string = "blue_shot.png";
     bulletPoint: Point = new Point(0, -35);
-    bulletSpeed: number = 3;
-    bulletDamage: number = 20;
-    fireInterval: number = 500;
+    bulletSpeed: number = 4;
+    bulletDamage: number = 40;
+    fireInterval: number = 1500;
     fireIntervalControl: FireIntervalControl;
-    attackSoundName: string = "shot_orange.wav";
+    attackSoundName: string = "shot_blue.wav";
     constructor() {
         this.fireIntervalControl = new FireIntervalControl();
     }
@@ -37,6 +38,12 @@ export default class AttackStrategyOrangeShip implements IAttackStrategy {
             this.bulletSpeed,
             this.bulletDamage,
         );
+        gsap.to(bullet.sprite.scale, {
+            x: 2.3,
+            y: 2.3,
+            duration: 1.2,
+            ease: "power2.out",
+        });
     }
     canAttack(): boolean {
         if (!Game.Instance.player.isAlive()) {

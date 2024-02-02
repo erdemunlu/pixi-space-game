@@ -1,5 +1,4 @@
 import { Ship } from "../objects/ships/Ship";
-import OrangeShip from "../objects/ships/OrangeShip";
 import Game from "../Game";
 import { GameState } from "../Helpers/GameState";
 import { Text } from "pixi.js";
@@ -30,8 +29,9 @@ export class Player {
     updateHealthText() {
         this.healthText.text = `HEALTH: ${this.ship.health}`;
     }
-    initializeShip() {
-        this.ship = new OrangeShip();
+    initializeShip(ship: Ship, health: number) {
+        this.ship = ship;
+        this.ship.health = health;
         this.healthText.text = `HEALTH: ${this.ship.health}`;
         this.healthText.visible = true;
     }

@@ -1,10 +1,10 @@
 import { Sprite, Texture } from "pixi.js";
 import { Ship } from "./Ship";
-import AttackStrategyOrangeShip from "../../Strategies/AttackStrategyOrangeShip";
-import MoveStrategyOrangeShip from "../../Strategies/MoveStrategyOrangeShip";
+import AttackStrategyGreenShip from "../../Strategies/AttackStrategyGreenShip";
+import MoveStrategyGreenShip from "../../Strategies/MoveStrategyGreenShip";
 import Game from "../../Game";
 
-export default class OrangeShip extends Ship {
+export default class GreenShip extends Ship {
     constructor() {
         super();
         this.initialize();
@@ -12,7 +12,7 @@ export default class OrangeShip extends Ship {
     }
 
     initialize(): void {
-        this.setSprite(new Sprite(Texture.from("orange_ship.png")));
+        this.setSprite(new Sprite(Texture.from("green_ship.png")));
         this.sprite.anchor.set(0.5, 0.5);
         this.position.set(400, 500);
     }
@@ -33,7 +33,7 @@ export default class OrangeShip extends Ship {
         Game.Instance.player.updateHealthText();
     }
     setStrategies() {
-        this.attackStrategy = new AttackStrategyOrangeShip();
-        this.moveStrategy = new MoveStrategyOrangeShip();
+        this.attackStrategy = new AttackStrategyGreenShip();
+        this.moveStrategy = new MoveStrategyGreenShip();
     }
 }

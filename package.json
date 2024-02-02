@@ -27,6 +27,7 @@
     "dependencies": {
         "@pixi/layers": "^2.1.0",
         "core-js": "^3.34.0",
+        "gsap": "^3.12.5",
         "howler": "^2.2.4",
         "pixi-console": "^4.0.0",
         "pixi-spine": "^4.0.4",

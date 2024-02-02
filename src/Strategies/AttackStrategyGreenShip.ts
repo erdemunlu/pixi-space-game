@@ -4,14 +4,14 @@ import Game from "../Game";
 import { Direction } from "../Helpers/Direction";
 import FireIntervalControl from "../core/FireIntervalControl";
 
-export default class AttackStrategyOrangeShip implements IAttackStrategy {
-    bulletSpriteName: string = "orange_shot.png";
+export default class AttackStrategyGreenShip implements IAttackStrategy {
+    bulletSpriteName: string = "green_shot.png";
     bulletPoint: Point = new Point(0, -35);
     bulletSpeed: number = 3;
-    bulletDamage: number = 20;
-    fireInterval: number = 500;
+    bulletDamage: number = 30;
+    fireInterval: number = 800;
     fireIntervalControl: FireIntervalControl;
-    attackSoundName: string = "shot_orange.wav";
+    attackSoundName: string = "shot_green.wav";
     constructor() {
         this.fireIntervalControl = new FireIntervalControl();
     }
@@ -27,16 +27,18 @@ export default class AttackStrategyOrangeShip implements IAttackStrategy {
     }
 
     initializeBullet(shipPoint: Point): void {
-        const bullet = Game.Instance.levelController.getBulletFromPool();
-        const point = new Point(shipPoint.x + this.bulletPoint.x, shipPoint.y + this.bulletPoint.y);
+        for (let i = 1; i < 3; i++) {
+            const bullet = Game.Instance.levelController.getBulletFromPool();
+            const point = new Point(shipPoint.x + this.bulletPoint.x, shipPoint.y + this.bulletPoint.y * i);
 
-        bullet.initialize(
-            new Sprite(Texture.from(this.bulletSpriteName)),
-            point,
-            Direction.Up,
-            this.bulletSpeed,
-            this.bulletDamage,
-        );
+            bullet.initialize(
+                new Sprite(Texture.from(this.bulletSpriteName)),
+                point,
+                Direction.Up,
+                this.bulletSpeed,
+                this.bulletDamage,
+            );
+        }
     }
     canAttack(): boolean {
         if (!Game.Instance.player.isAlive()) {

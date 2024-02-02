@@ -11,7 +11,7 @@ export class LevelsData {
 
         Data.forEach((level, index) => {
             // Validate level structure
-            if (!level.levelNumber || !Array.isArray(level.ships)) {
+            if (!level.levelNumber || !Array.isArray(level.ships) || !level.player?.name || !level.player?.health) {
                 throw new Error(`Invalid JSON structure at level ${index + 1}.`);
             }
 
@@ -26,17 +26,28 @@ export class LevelsData {
 
         // Debug ships for the level
         level.ships.forEach(this.debugShip);
+
+        // Debug player for the level
+        this.debugPlayer(level.player);
     }
 
     // Debug a single ship
     debugShip(ship: Ship): void {
         console.log(
-            `Ship Type: ${ship.name}, 
+            `Ship Name: ${ship.name}, 
       Health: ${ship.health}, 
       Speed: ${ship.speed},
       Direction: ${ship.direction}, 
       PositionX: ${ship.position.x}, 
       PositionY: ${ship.position.y}`,
+        );
+    }
+
+    //Debug Player
+    debugPlayer(player: Player): void {
+        console.log(
+            `Ship name: ${player.name},
+            Health: ${player.health}`,
         );
     }
 }
@@ -58,12 +69,22 @@ class Ship {
         this.position = position;
     }
 }
+class Player {
+    name: string;
+    health: number;
+    constructor(name: string, health: number) {
+        this.name = name;
+        this.health = health;
+    }
+}
 
 class Level {
     levelNumber: number;
     ships: Ship[];
-    constructor(levelNumber: number, ships: Ship[]) {
+    player: Player;
+    constructor(levelNumber: number, ships: Ship[], player: Player) {
         this.levelNumber = levelNumber;
         this.ships = ships;
+        this.player = player;
     }
 }

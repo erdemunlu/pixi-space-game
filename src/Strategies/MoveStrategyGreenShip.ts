@@ -3,11 +3,11 @@ import { Direction } from "../Helpers/Direction";
 import IMoveStrategy from "../Interfaces/IMoveStrategy";
 import { Ship } from "../objects/ships/Ship";
 
-export default class MoveStrategyOrangeShip implements IMoveStrategy {
+export default class MoveStrategyGreenShip implements IMoveStrategy {
     speed: number;
 
     constructor() {
-        this.speed = 2;
+        this.speed = 3;
     }
 
     move(ship: Ship): void {
