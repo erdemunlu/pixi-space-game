@@ -19,14 +19,14 @@ export class MenuManager {
     }
 
     initializeStartText(): void {
-        this.startText.interactive = true;
+        this.startText.eventMode = "static";
         this.startText.style = defaultBigTextStyle;
         this.startText.anchor.set(0.5, 0.5);
         this.startText.position.set(400, 300);
         this.startText.on("pointerdown", () => {
             this.onStartClicked();
             this.startText.visible = false;
-            this.startText.interactive = false;
+            this.startText.eventMode = "auto";
             this.currentLevelText.visible = false;
         });
         Game.Instance.app.stage.addChild(this.startText);
@@ -38,7 +38,7 @@ export class MenuManager {
     }
     initializeCurrentLevelText(): void {
         this.currentLevelText.style = defaultTextStyle;
-        this.currentLevelText.interactive = false;
+        this.currentLevelText.eventMode = "auto";
         this.currentLevelText.anchor.set(0.5, 0.5);
         this.currentLevelText.position.set(400, 200);
         Game.Instance.app.stage.addChild(this.currentLevelText);
@@ -50,7 +50,7 @@ export class MenuManager {
         this.restartText.visible = false;
         this.restartText.on("pointerdown", () => {
             this.onRestartClicked();
-            this.restartText.interactive = false;
+            this.restartText.eventMode = "auto";
             this.restartText.visible = false;
             this.startText.text = "START!";
         });
@@ -67,20 +67,20 @@ export class MenuManager {
 
         if (currentLevel > maxLevel) {
             this.startText.text = "FINAL!";
-            this.startText.interactive = false;
+            this.startText.eventMode = "auto";
             this.restartText.visible = true;
-            this.restartText.interactive = true;
+            this.restartText.eventMode = "static";
         } else {
             this.currentLevelText.text = `Level ${currentLevel}`;
             this.currentLevelText.visible = true;
-            this.startText.interactive = true;
+            this.startText.eventMode = "static";
         }
         this.startText.visible = true;
     }
     initializeSameLevelMenu(): void {
         this.currentLevelText.visible = true;
         this.startText.visible = true;
-        this.startText.interactive = true;
+        this.startText.eventMode = "static";
     }
     handleMenuAfterLevel(isSuccessful: boolean): void {
         Game.Instance.player.healthText.visible = false;
