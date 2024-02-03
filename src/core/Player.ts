@@ -1,17 +1,16 @@
 import { Ship } from "../objects/ships/Ship";
 import Game from "../Game";
 import { GameState } from "../Helpers/GameState";
-import { Text } from "pixi.js";
-import { defaultTextStyle } from "../Helpers/styles";
 
 export class Player {
     ship!: Ship;
-    healthText: Text = new Text("");
     constructor() {
-        this.initializeHealthText();
         Game.Instance.app.ticker.add(this.gameLoop.bind(this));
     }
 
+    initializeShip(ship: Ship) {
+        this.ship = ship;
+    }
     gameLoop() {
         if (Game.Instance.stateManager.getCurrentState() !== GameState.Playing) {
             return;
@@ -25,20 +24,5 @@ export class Player {
         }
 
         return true;
-    }
-    updateHealthText() {
-        this.healthText.text = `HEALTH: ${this.ship.health}`;
-    }
-    initializeShip(ship: Ship, health: number) {
-        this.ship = ship;
-        this.ship.health = health;
-        this.healthText.text = `HEALTH: ${this.ship.health}`;
-        this.healthText.visible = true;
-    }
-    initializeHealthText() {
-        this.healthText.anchor.set(0.5, 0.5);
-        this.healthText.transform.position.set(400, 550);
-        this.healthText.style = defaultTextStyle;
-        Game.Instance.app.stage.addChild(this.healthText);
     }
 }

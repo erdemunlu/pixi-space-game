@@ -83,7 +83,6 @@ export class MenuManager {
         this.startText.eventMode = "static";
     }
     handleMenuAfterLevel(isSuccessful: boolean): void {
-        Game.Instance.player.healthText.visible = false;
         if (isSuccessful) {
             this.initializeNewLevelMenu();
         } else {

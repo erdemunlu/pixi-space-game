@@ -1,12 +1,16 @@
-import { Sprite, Texture } from "pixi.js";
+import { Point, Sprite, Texture } from "pixi.js";
 import { Ship } from "./Ship";
 import AttackStrategyOrangeShip from "../../Strategies/AttackStrategyOrangeShip";
 import MoveStrategyOrangeShip from "../../Strategies/MoveStrategyOrangeShip";
 import Game from "../../Game";
+import { HealthBar } from "../../Helpers/HealthBar";
 
 export default class OrangeShip extends Ship {
-    constructor() {
+    healthBar!: HealthBar;
+    healthBarPoint: Point = new Point(0, 50);
+    constructor(health: number) {
         super();
+        this.health = health;
         this.initialize();
         this.setStrategies();
     }
@@ -15,6 +19,7 @@ export default class OrangeShip extends Ship {
         this.setSprite(new Sprite(Texture.from("orange_ship.png")));
         this.sprite.anchor.set(0.5, 0.5);
         this.position.set(400, 500);
+        this.healthBar = new HealthBar(this.health, this.sprite, this.healthBarPoint);
     }
     attack(): void {
         this.attackStrategy.attack(this.position);
@@ -30,7 +35,7 @@ export default class OrangeShip extends Ship {
         this.health > 0
             ? Game.Instance.audioManager.playSound(this.getHitSoundName)
             : Game.Instance.audioManager.playSound(this.deathSoundName);
-        Game.Instance.player.updateHealthText();
+        this.healthBar.updateHealthBar(this.health);
     }
     setStrategies() {
         this.attackStrategy = new AttackStrategyOrangeShip();

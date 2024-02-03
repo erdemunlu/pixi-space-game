@@ -61,14 +61,14 @@ export class LevelController {
             }
         }
         if (levelData.player.name === OrangeShip.name) {
-            const playerShip = new OrangeShip();
-            Game.Instance.player.initializeShip(playerShip, levelData.player.health);
+            const playerShip = new OrangeShip(levelData.player.health);
+            Game.Instance.player.initializeShip(playerShip);
         } else if (levelData.player.name === GreenShip.name) {
-            const playerShip = new GreenShip();
-            Game.Instance.player.initializeShip(playerShip, levelData.player.health);
+            const playerShip = new GreenShip(levelData.player.health);
+            Game.Instance.player.initializeShip(playerShip);
         } else if (levelData.player.name === BlueShip.name) {
-            const playerShip = new BlueShip();
-            Game.Instance.player.initializeShip(playerShip, levelData.player.health);
+            const playerShip = new BlueShip(levelData.player.health);
+            Game.Instance.player.initializeShip(playerShip);
         }
 
         this.enemyController = new EnemyController(ships);
