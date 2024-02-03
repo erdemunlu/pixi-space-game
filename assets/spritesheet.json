@@ -1,111 +1,275 @@
 {
     "frames": {
         "background.png": {
-            "frame": { "x": 1, "y": 90, "w": 800, "h": 600 },
+            "frame": {
+                "x": 1,
+                "y": 1,
+                "w": 800,
+                "h": 600
+            },
             "rotated": false,
             "trimmed": false,
-            "spriteSourceSize": { "x": 0, "y": 0, "w": 800, "h": 600 },
-            "sourceSize": { "w": 800, "h": 600 }
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 800,
+                "h": 600
+            },
+            "sourceSize": {
+                "w": 800,
+                "h": 600
+            }
         },
         "blue_ship.png": {
-            "frame": { "x": 406, "y": 1, "w": 63, "h": 51 },
+            "frame": {
+                "x": 1,
+                "y": 603,
+                "w": 63,
+                "h": 51
+            },
             "rotated": false,
             "trimmed": false,
-            "spriteSourceSize": { "x": 0, "y": 0, "w": 63, "h": 51 },
-            "sourceSize": { "w": 63, "h": 51 }
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 63,
+                "h": 51
+            },
+            "sourceSize": {
+                "w": 63,
+                "h": 51
+            }
         },
         "blue_shot.png": {
-            "frame": { "x": 25, "y": 1, "w": 16, "h": 18 },
-            "rotated": true,
+            "frame": {
+                "x": 66,
+                "y": 603,
+                "w": 16,
+                "h": 18
+            },
+            "rotated": false,
             "trimmed": false,
-            "spriteSourceSize": { "x": 0, "y": 0, "w": 16, "h": 18 },
-            "sourceSize": { "w": 16, "h": 18 }
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 16,
+                "h": 18
+            },
+            "sourceSize": {
+                "w": 16,
+                "h": 18
+            }
         },
         "blue_strong_shot.png": {
-            "frame": { "x": 153, "y": 1, "w": 36, "h": 44 },
-            "rotated": true,
+            "frame": {
+                "x": 84,
+                "y": 603,
+                "w": 36,
+                "h": 44
+            },
+            "rotated": false,
             "trimmed": false,
-            "spriteSourceSize": { "x": 0, "y": 0, "w": 36, "h": 44 },
-            "sourceSize": { "w": 36, "h": 44 }
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 36,
+                "h": 44
+            },
+            "sourceSize": {
+                "w": 36,
+                "h": 44
+            }
         },
         "enemy_ship_strong.png": {
-            "frame": { "x": 471, "y": 1, "w": 90, "h": 74 },
+            "frame": {
+                "x": 122,
+                "y": 603,
+                "w": 90,
+                "h": 74
+            },
             "rotated": false,
             "trimmed": false,
-            "spriteSourceSize": { "x": 0, "y": 0, "w": 90, "h": 74 },
-            "sourceSize": { "w": 90, "h": 74 }
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 90,
+                "h": 74
+            },
+            "sourceSize": {
+                "w": 90,
+                "h": 74
+            }
         },
         "enemy_ship_weak.png": {
-            "frame": { "x": 563, "y": 1, "w": 98, "h": 87 },
+            "frame": {
+                "x": 214,
+                "y": 603,
+                "w": 98,
+                "h": 87
+            },
             "rotated": false,
             "trimmed": false,
-            "spriteSourceSize": { "x": 0, "y": 0, "w": 98, "h": 87 },
-            "sourceSize": { "w": 98, "h": 87 }
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 98,
+                "h": 87
+            },
+            "sourceSize": {
+                "w": 98,
+                "h": 87
+            }
         },
         "green_ship.png": {
-            "frame": { "x": 340, "y": 1, "w": 64, "h": 47 },
+            "frame": {
+                "x": 314,
+                "y": 603,
+                "w": 64,
+                "h": 47
+            },
             "rotated": false,
             "trimmed": false,
-            "spriteSourceSize": { "x": 0, "y": 0, "w": 64, "h": 47 },
-            "sourceSize": { "w": 64, "h": 47 }
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 64,
+                "h": 47
+            },
+            "sourceSize": {
+                "w": 64,
+                "h": 47
+            }
         },
         "green_shot.png": {
-            "frame": { "x": 45, "y": 1, "w": 19, "h": 17 },
+            "frame": {
+                "x": 380,
+                "y": 603,
+                "w": 19,
+                "h": 17
+            },
             "rotated": false,
             "trimmed": false,
-            "spriteSourceSize": { "x": 0, "y": 0, "w": 19, "h": 17 },
-            "sourceSize": { "w": 19, "h": 17 }
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 19,
+                "h": 17
+            },
+            "sourceSize": {
+                "w": 19,
+                "h": 17
+            }
         },
-        "meteor_gray.png": {
-            "frame": { "x": 115, "y": 1, "w": 31, "h": 36 },
-            "rotated": true,
-            "trimmed": false,
-            "spriteSourceSize": { "x": 0, "y": 0, "w": 31, "h": 36 },
-            "sourceSize": { "w": 31, "h": 36 }
-        },
-        "meteor_orange.png": {
-            "frame": { "x": 248, "y": 1, "w": 42, "h": 39 },
+        "health-bar.png": {
+            "frame": {
+                "x": 401,
+                "y": 603,
+                "w": 98,
+                "h": 32
+            },
             "rotated": false,
             "trimmed": false,
-            "spriteSourceSize": { "x": 0, "y": 0, "w": 42, "h": 39 },
-            "sourceSize": { "w": 42, "h": 39 }
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 98,
+                "h": 32
+            },
+            "sourceSize": {
+                "w": 98,
+                "h": 32
+            }
+        },
+        "health-bar-fill.png": {
+            "frame": {
+                "x": 501,
+                "y": 603,
+                "w": 80,
+                "h": 18
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 80,
+                "h": 18
+            },
+            "sourceSize": {
+                "w": 80,
+                "h": 18
+            }
         },
         "orange_ship.png": {
-            "frame": { "x": 292, "y": 1, "w": 46, "h": 45 },
+            "frame": {
+                "x": 583,
+                "y": 603,
+                "w": 46,
+                "h": 45
+            },
             "rotated": false,
             "trimmed": false,
-            "spriteSourceSize": { "x": 0, "y": 0, "w": 46, "h": 45 },
-            "sourceSize": { "w": 46, "h": 45 }
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 46,
+                "h": 45
+            },
+            "sourceSize": {
+                "w": 46,
+                "h": 45
+            }
         },
         "orange_shot.png": {
-            "frame": { "x": 1, "y": 1, "w": 14, "h": 22 },
-            "rotated": true,
+            "frame": {
+                "x": 631,
+                "y": 603,
+                "w": 14,
+                "h": 22
+            },
+            "rotated": false,
             "trimmed": false,
-            "spriteSourceSize": { "x": 0, "y": 0, "w": 14, "h": 22 },
-            "sourceSize": { "w": 14, "h": 22 }
-        },
-        "yellow_strong_thick_shot.png": {
-            "frame": { "x": 199, "y": 1, "w": 36, "h": 47 },
-            "rotated": true,
-            "trimmed": false,
-            "spriteSourceSize": { "x": 0, "y": 0, "w": 36, "h": 47 },
-            "sourceSize": { "w": 36, "h": 47 }
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 14,
+                "h": 22
+            },
+            "sourceSize": {
+                "w": 14,
+                "h": 22
+            }
         },
         "yellow_strong_thin_shot.png": {
-            "frame": { "x": 66, "y": 1, "w": 19, "h": 47 },
-            "rotated": true,
+            "frame": {
+                "x": 647,
+                "y": 603,
+                "w": 19,
+                "h": 47
+            },
+            "rotated": false,
             "trimmed": false,
-            "spriteSourceSize": { "x": 0, "y": 0, "w": 19, "h": 47 },
-            "sourceSize": { "w": 19, "h": 47 }
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 19,
+                "h": 47
+            },
+            "sourceSize": {
+                "w": 19,
+                "h": 47
+            }
         }
     },
     "meta": {
-        "app": "https://www.codeandweb.com/texturepacker",
-        "version": "1.1",
+        "app": "http://www.codeandweb.com/texturepacker",
+        "version": "1.0",
         "image": "spritesheet.png",
         "format": "RGBA8888",
-        "size": { "w": 802, "h": 691 },
-        "scale": "1",
-        "smartupdate": "$TexturePacker:SmartUpdate:e0436f51fea5c86c85c28c892eb7f5c5:b102884fa100e0f016a1e033d5c5e2b1:729adc6043343cfda41c447ce8f464d6$"
+        "size": {
+            "w": 802,
+            "h": 691
+        },
+        "scale": "1"
     }
 }
