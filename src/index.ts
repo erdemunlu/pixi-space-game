@@ -31,6 +31,15 @@ async function loadGameAssets(): Promise<void> {
     const manifest = {
         bundles: [
             {
+                name: "fonts",
+                assets: [
+                    {
+                        name: "fonts",
+                        srcs: "./assets/fonts/PixelFont.woff",
+                    },
+                ],
+            },
+            {
                 name: "assets",
                 assets: [
                     {
@@ -43,7 +52,7 @@ async function loadGameAssets(): Promise<void> {
     };
 
     await Assets.init({ manifest });
-    await Assets.loadBundle(["assets"]);
+    await Assets.loadBundle(["fonts", "assets"]);
 }
 
 function resizeCanvas(): void {
