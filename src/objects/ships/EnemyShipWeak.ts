@@ -22,8 +22,8 @@ export class EnemyShipWeak extends Ship {
     attack(): void {
         this.attackStrategy.attack(this.position);
     }
-    move(): void {
-        this.moveStrategy.move(this);
+    move(delta: number): void {
+        this.moveStrategy.move(this, delta);
     }
     getHit(damage: number): void {
         this.health -= damage;

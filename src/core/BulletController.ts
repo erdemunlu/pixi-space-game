@@ -12,12 +12,12 @@ export class BulletController {
         this.activeBullets = [];
         this.activeShips = activeShips;
         this.activeShips.push(Game.Instance.player.ship);
-        Game.Instance.app.ticker.add(this.update, this);
+        Game.Instance.app.ticker.add((delta) => this.update(delta), this);
     }
 
-    update() {
+    update(delta: number) {
         if (Game.Instance.stateManager.getCurrentState() === GameState.Playing) {
-            this.handleBulletMovement();
+            this.handleBulletMovement(delta);
             this.handleCollision();
         } else {
             for (let i = 0; i < this.activeBullets.length; i++) {
@@ -48,10 +48,10 @@ export class BulletController {
         this.activeShips = ships;
     }
 
-    handleBulletMovement() {
+    handleBulletMovement(delta: number) {
         for (let i = 0; i < this.activeBullets.length; i++) {
             const bullet = this.activeBullets[i];
-            bullet.position = new Point(bullet.position.x, bullet.position.y + bullet.speed * bullet.direction);
+            bullet.position = new Point(bullet.position.x, bullet.position.y + bullet.speed * bullet.direction * delta);
             if (bullet.isOutOfScreen()) {
                 this.removeBulletFromActiveBullets(i);
                 //Game.Instance.levelController.bulletPool.getBulletInfo();

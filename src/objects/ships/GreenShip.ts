@@ -28,8 +28,8 @@ export default class GreenShip extends Ship {
     getFireInterval(): number {
         return this.attackStrategy.fireInterval;
     }
-    move(): void {
-        this.moveStrategy.move(this);
+    move(delta: number): void {
+        this.moveStrategy.move(this, delta);
     }
     getHit(damage: number): void {
         this.health -= damage;

@@ -10,13 +10,13 @@ export default class MoveStrategyGreenShip implements IMoveStrategy {
         this.speed = 3;
     }
 
-    move(ship: Ship): void {
+    move(ship: Ship, delta: number): void {
         if (Game.Instance.inputHandler.right()) {
-            ship.position.x += this.speed * Direction.Right;
+            ship.position.x += this.speed * Direction.Right * delta;
             ship.clampPositionToScreen();
         }
         if (Game.Instance.inputHandler.left()) {
-            ship.position.x += this.speed * Direction.Left;
+            ship.position.x += this.speed * Direction.Left * delta;
             ship.clampPositionToScreen();
         }
     }

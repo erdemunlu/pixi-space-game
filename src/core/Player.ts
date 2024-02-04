@@ -5,17 +5,17 @@ import { GameState } from "../Helpers/GameState";
 export class Player {
     ship!: Ship;
     constructor() {
-        Game.Instance.app.ticker.add(this.gameLoop.bind(this));
+        Game.Instance.app.ticker.add((delta) => this.gameLoop(delta), this);
     }
 
     initializeShip(ship: Ship) {
         this.ship = ship;
     }
-    gameLoop() {
+    gameLoop(delta: number) {
         if (Game.Instance.stateManager.getCurrentState() !== GameState.Playing) {
             return;
         }
-        this.ship?.move();
+        this.ship?.move(delta);
         this.ship?.attack();
     }
     isAlive(): boolean {

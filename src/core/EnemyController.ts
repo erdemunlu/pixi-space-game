@@ -7,18 +7,18 @@ export class EnemyController {
 
     constructor(enemyShips: Ship[]) {
         this.enemyShips = enemyShips;
-        Game.Instance.app.ticker.add(this.gameLoop.bind(this));
+        Game.Instance.app.ticker.add((delta) => this.gameLoop(delta), this);
     }
 
-    gameLoop() {
+    gameLoop(delta: number) {
         if (Game.Instance.stateManager.getCurrentState() === GameState.Playing) {
-            this.handleEnemy();
+            this.handleEnemy(delta);
         }
     }
 
-    handleEnemy() {
+    handleEnemy(delta: number) {
         for (let i = 0; i < this.enemyShips.length; i++) {
-            this.enemyShips[i]?.move();
+            this.enemyShips[i]?.move(delta);
             this.enemyShips[i]?.attack();
         }
     }

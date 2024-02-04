@@ -14,15 +14,15 @@ export class MoveStrategyEnemyWeakShip implements IMoveStrategy {
         this.screenWidth = Game.Instance.world.width;
     }
 
-    move(ship: Ship): void {
+    move(ship: Ship, delta: number): void {
         if (this.moveDirection === Direction.Right) {
-            ship.position.x += this.speed * Direction.Right;
+            ship.position.x += this.speed * Direction.Right * delta;
             if (ship.position.x > this.screenWidth - ship.width) {
                 ship.position.x = this.screenWidth - ship.width;
                 this.moveDirection = Direction.Left;
             }
         } else {
-            ship.position.x += this.speed * Direction.Left;
+            ship.position.x += this.speed * Direction.Left * delta;
             if (ship.position.x < ship.width) {
                 ship.position.x = ship.width;
                 this.moveDirection = Direction.Right;
