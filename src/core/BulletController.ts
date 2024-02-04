@@ -52,6 +52,9 @@ export class BulletController {
         for (let i = 0; i < this.activeBullets.length; i++) {
             const bullet = this.activeBullets[i];
             bullet.position = new Point(bullet.position.x, bullet.position.y + bullet.speed * bullet.direction * delta);
+            bullet.hitboxCollider.updatePoint(
+                new Point(bullet.position.x - bullet.hitboxCollider.width / 2, bullet.position.y),
+            );
             if (bullet.isOutOfScreen()) {
                 this.removeBulletFromActiveBullets(i);
                 //Game.Instance.levelController.bulletPool.getBulletInfo();
@@ -62,7 +65,7 @@ export class BulletController {
     handleCollision() {
         for (let i = 0; i < this.activeBullets.length; i++) {
             for (let j = 0; j < this.activeShips.length; j++) {
-                if (this.activeBullets[i]?.isCollidingWith(this.activeShips[j]?.getBounds())) {
+                if (this.activeBullets[i]?.hitboxCollider.isCollidingWith(this.activeShips[j]?.hitboxCollider)) {
                     this.activeShips[j].getHit(this.activeBullets[i].damage);
                     if (this.activeShips[j].health <= 0) {
                         this.removeShipFromActiveShips(j);

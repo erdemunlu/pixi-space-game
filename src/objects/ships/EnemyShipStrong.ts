@@ -1,8 +1,9 @@
-import { Sprite, Texture } from "pixi.js";
+import { Point, Sprite, Texture } from "pixi.js";
 import { Ship } from "./Ship";
 import { MoveStrategyEnemyStrongShip } from "../../Strategies/MoveStrategyEnemyStrongShip";
 import { AttackStrategyEnemyStrongShip } from "../../Strategies/AttackStrategyEnemyStrongShip";
 import Game from "../../Game";
+import { HitboxCollider } from "../../Helpers/HitboxCollider";
 
 export class EnemyShipStrong extends Ship {
     name: string = EnemyShipStrong.name;
@@ -23,7 +24,7 @@ export class EnemyShipStrong extends Ship {
         this.attackStrategy.attack(this.position);
     }
     move(delta: number): void {
-        this.moveStrategy.move(this, delta);
+        this.moveStrategy.move(this, delta, this.hitboxCollider);
     }
     getHit(damage: number): void {
         this.health -= damage;
@@ -39,5 +40,10 @@ export class EnemyShipStrong extends Ship {
     setVisual() {
         this.setSprite(new Sprite(Texture.from("enemy_ship_strong.png")));
         this.sprite.anchor.set(0.5, 0.5);
+        this.hitboxCollider = new HitboxCollider(
+            new Point(this.position.x, this.position.y),
+            this.sprite.width,
+            this.sprite.height,
+        );
     }
 }

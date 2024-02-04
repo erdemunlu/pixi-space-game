@@ -1,4 +1,4 @@
-import { Container, IDestroyOptions, Rectangle, Sprite } from "pixi.js";
+import { Container, IDestroyOptions, Sprite } from "pixi.js";
 import Game from "../Game";
 
 export default class GameObject extends Container {
@@ -41,16 +41,6 @@ export default class GameObject extends Container {
         if (this.position.x > screenWidth - this.width) {
             this.position.x = screenWidth - this.width;
         }
-    }
-
-    isCollidingWith(targetBounds: Rectangle) {
-        const bounds = this.getBounds();
-        return (
-            bounds.x < targetBounds.x + targetBounds.width &&
-            bounds.x + bounds.width > targetBounds.x &&
-            bounds.y < targetBounds.y + targetBounds.height &&
-            bounds.y + bounds.height > targetBounds.y
-        );
     }
 
     destroy(options: IDestroyOptions) {

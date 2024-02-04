@@ -1,5 +1,7 @@
+import { Point } from "pixi.js";
 import Game from "../Game";
 import { Direction } from "../Helpers/Direction";
+import { HitboxCollider } from "../Helpers/HitboxCollider";
 import IMoveStrategy from "../Interfaces/IMoveStrategy";
 import { Ship } from "../objects/ships/Ship";
 
@@ -14,7 +16,7 @@ export class MoveStrategyEnemyStrongShip implements IMoveStrategy {
         this.screenWidth = Game.Instance.world.width;
     }
 
-    move(ship: Ship, delta: number): void {
+    move(ship: Ship, delta: number, hitboxCollider: HitboxCollider): void {
         if (this.moveDirection === Direction.Right) {
             ship.position.x += this.speed * Direction.Right * delta;
             if (ship.position.x > this.screenWidth - ship.width) {
@@ -28,5 +30,8 @@ export class MoveStrategyEnemyStrongShip implements IMoveStrategy {
                 this.moveDirection = Direction.Right;
             }
         }
+        hitboxCollider.updatePoint(
+            new Point(ship.position.x - hitboxCollider.width / 2, ship.position.y - hitboxCollider.height / 2),
+        );
     }
 }

@@ -6,7 +6,7 @@ import FireIntervalControl from "../core/FireIntervalControl";
 
 export class AttackStrategyEnemyStrongShip implements IAttackStrategy {
     bulletSpriteName: string = "yellow_strong_thin_shot.png";
-    bulletPoint: Point = new Point(-30, 70);
+    bulletPoint: Point = new Point(-30, 90);
     bulletSpeed: number = 2;
     bulletDamage: number = 60;
     fireInterval: number = 2000;

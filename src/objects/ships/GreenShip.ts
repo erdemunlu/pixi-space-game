@@ -4,6 +4,7 @@ import AttackStrategyGreenShip from "../../Strategies/AttackStrategyGreenShip";
 import MoveStrategyGreenShip from "../../Strategies/MoveStrategyGreenShip";
 import Game from "../../Game";
 import { HealthProgressBar } from "../../Helpers/HealthProgressBar";
+import { HitboxCollider } from "../../Helpers/HitboxCollider";
 
 export default class GreenShip extends Ship {
     healthProgressBar!: HealthProgressBar;
@@ -20,6 +21,7 @@ export default class GreenShip extends Ship {
         this.setSprite(new Sprite(Texture.from("green_ship.png")));
         this.sprite.anchor.set(0.5, 0.5);
         this.position.set(400, 500);
+        this.hitboxCollider = new HitboxCollider(new Point(400, 500), this.sprite.width, this.sprite.height);
         this.healthProgressBar = new HealthProgressBar(this.health, this.healthBarPoint, this.sprite);
     }
     attack(): void {
@@ -29,7 +31,7 @@ export default class GreenShip extends Ship {
         return this.attackStrategy.fireInterval;
     }
     move(delta: number): void {
-        this.moveStrategy.move(this, delta);
+        this.moveStrategy.move(this, delta, this.hitboxCollider);
     }
     getHit(damage: number): void {
         this.health -= damage;
