@@ -8,7 +8,7 @@ export default class AttackStrategyGreenShip implements IAttackStrategy {
     bulletSpriteName: string = "green_shot.png";
     bulletPoint: Point = new Point(0, -35);
     bulletSpeed: number = 3;
-    bulletDamage: number = 30;
+    bulletDamage: number = 20;
     fireInterval: number = 800;
     fireIntervalControl: FireIntervalControl;
     attackSoundName: string = "shot_green.wav";

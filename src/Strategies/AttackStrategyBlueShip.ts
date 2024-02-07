@@ -9,7 +9,7 @@ export default class AttackStrategyBlueShip implements IAttackStrategy {
     bulletSpriteName: string = "blue_shot.png";
     bulletPoint: Point = new Point(0, -35);
     bulletSpeed: number = 4;
-    bulletDamage: number = 40;
+    bulletDamage: number = 50;
     fireInterval: number = 1500;
     fireIntervalControl: FireIntervalControl;
     attackSoundName: string = "shot_blue.wav";

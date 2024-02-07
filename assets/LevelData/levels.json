@@ -52,7 +52,7 @@
         "ships": [
             {
                 "name": "EnemyShipStrong",
-                "health": 100,
+                "health": 200,
                 "speed": 2,
                 "direction": 1,
                 "position": {
@@ -103,6 +103,163 @@
         "player": {
             "name": "GreenShip",
             "health": 120
+        }
+    },
+    {
+        "levelNumber": 5,
+        "ships": [
+            {
+                "name": "EnemyShipStrong",
+                "health": 100,
+                "speed": 0,
+                "direction": 1,
+                "position": {
+                    "x": 200,
+                    "y": 50
+                }
+            },
+            {
+                "name": "EnemyShipStrong",
+                "health": 200,
+                "speed": 0,
+                "direction": 1,
+                "position": {
+                    "x": 400,
+                    "y": 50
+                }
+            },
+            {
+                "name": "EnemyShipStrong",
+                "health": 100,
+                "speed": 0,
+                "direction": 1,
+                "position": {
+                    "x": 600,
+                    "y": 50
+                }
+            }
+        ],
+        "player": {
+            "name": "BlueShip",
+            "health": 100
+        }
+    },
+    {
+        "levelNumber": 6,
+        "ships": [
+            {
+                "name": "EnemyShipWeak",
+                "health": 100,
+                "speed": 0,
+                "direction": 1,
+                "position": {
+                    "x": 150,
+                    "y": 50
+                }
+            },
+            {
+                "name": "EnemyShipWeak",
+                "health": 100,
+                "speed": 0,
+                "direction": 1,
+                "position": {
+                    "x": 300,
+                    "y": 50
+                }
+            },
+            {
+                "name": "EnemyShipStrong",
+                "health": 100,
+                "speed": 0,
+                "direction": 1,
+                "position": {
+                    "x": 600,
+                    "y": 50
+                }
+            }
+        ],
+        "player": {
+            "name": "OrangeShip",
+            "health": 100
+        }
+    },
+    {
+        "levelNumber": 7,
+        "ships": [
+            {
+                "name": "EnemyShipWeak",
+                "health": 100,
+                "speed": 0,
+                "direction": 1,
+                "position": {
+                    "x": 100,
+                    "y": 350
+                }
+            },
+            {
+                "name": "EnemyShipWeak",
+                "health": 100,
+                "speed": 0,
+                "direction": 1,
+                "position": {
+                    "x": 200,
+                    "y": 300
+                }
+            },
+            {
+                "name": "EnemyShipWeak",
+                "health": 100,
+                "speed": 0,
+                "direction": 1,
+                "position": {
+                    "x": 300,
+                    "y": 250
+                }
+            },
+            {
+                "name": "EnemyShipWeak",
+                "health": 100,
+                "speed": 0,
+                "direction": 1,
+                "position": {
+                    "x": 400,
+                    "y": 200
+                }
+            },
+            {
+                "name": "EnemyShipWeak",
+                "health": 100,
+                "speed": 0,
+                "direction": 1,
+                "position": {
+                    "x": 500,
+                    "y": 150
+                }
+            },
+            {
+                "name": "EnemyShipWeak",
+                "health": 100,
+                "speed": 0,
+                "direction": 1,
+                "position": {
+                    "x": 600,
+                    "y": 100
+                }
+            },
+            {
+                "name": "EnemyShipWeak",
+                "health": 100,
+                "speed": 0,
+                "direction": 1,
+                "position": {
+                    "x": 700,
+                    "y": 50
+                }
+            }
+        ],
+        "player": {
+            "name": "BlueShip",
+            "health": 100
         }
     }
 ]
