@@ -2,6 +2,7 @@
 
 ![Trailer gif](assets/Gifs/trailer.gif)
 
+-   PLAY NOW -> http://www.erdemunlu.com/games/pixi-space-game/index.html
 -   Typescript & Pixi.js boilerplate that I used: https://github.com/yordan-kanchelov/pixi-typescript-boilerplate
 -   Assets that I used: https://github.com/sparklinlabs/superpowers-asset-packs/tree/master/space-shooter
 
