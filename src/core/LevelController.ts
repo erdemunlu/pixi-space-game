@@ -24,19 +24,19 @@ export class LevelController {
         this.bulletPool = new BulletPool();
     }
 
-    updateCurrentLevel(isSuccessful: boolean) {
+    updateCurrentLevel(isSuccessful: boolean): void {
         if (isSuccessful) {
             this.currentLevel += 1;
         }
     }
-    getMaxLevelNumber() {
+    getMaxLevelNumber(): number {
         return this.levelsData.levels.length;
     }
-    resetLevelProgress() {
+    resetLevelProgress(): void {
         this.currentLevel = 1;
     }
 
-    initializeLevel() {
+    initializeLevel(): void {
         const ships: Ship[] = [];
         const levelData = this.levelsData.levels[this.currentLevel - 1];
         for (let i = 0; i < levelData.ships.length; i++) {
@@ -84,7 +84,7 @@ export class LevelController {
         return this.currentLevel;
     }
 
-    finalizeLevel(isSuccessful: boolean) {
+    finalizeLevel(isSuccessful: boolean): void {
         Game.Instance.stateManager.setState(GameState.Menu);
         this.updateCurrentLevel(isSuccessful);
         Game.Instance.menuManager.handleMenuAfterLevel(isSuccessful);

@@ -33,11 +33,11 @@ export class EnemyShipWeak extends Ship {
             : Game.Instance.audioManager.playSound(this.deathSoundName);
     }
 
-    setStrategies() {
+    setStrategies(): void {
         this.moveStrategy = new MoveStrategyEnemyWeakShip(this.speed, this.moveDirection);
         this.attackStrategy = new AttackStrategyEnemyWeakShip();
     }
-    setVisual() {
+    setVisual(): void {
         this.setSprite(new Sprite(Texture.from("enemy_ship_weak.png")));
         this.sprite.anchor.set(0.5, 0.5);
         this.hitboxCollider = new HitboxCollider(

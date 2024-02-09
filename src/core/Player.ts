@@ -8,10 +8,10 @@ export class Player {
         Game.Instance.app.ticker.add((delta) => this.gameLoop(delta), this);
     }
 
-    initializeShip(ship: Ship) {
+    initializeShip(ship: Ship): void {
         this.ship = ship;
     }
-    gameLoop(delta: number) {
+    gameLoop(delta: number): void {
         if (Game.Instance.stateManager.getCurrentState() !== GameState.Playing) {
             return;
         }

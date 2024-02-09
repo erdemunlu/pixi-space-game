@@ -43,7 +43,7 @@ export class MenuManager {
         this.currentLevelText.position.set(400, 200);
         Game.Instance.app.stage.addChild(this.currentLevelText);
     }
-    initializeRestartText() {
+    initializeRestartText(): void {
         this.restartText.style = defaultTextStyle;
         this.restartText.anchor.set(0.5, 0.5);
         this.restartText.position.set(400, 400);
@@ -56,7 +56,7 @@ export class MenuManager {
         });
         Game.Instance.app.stage.addChild(this.restartText);
     }
-    onRestartClicked() {
+    onRestartClicked(): void {
         Game.Instance.levelController.resetLevelProgress();
         this.initializeNewLevelMenu();
     }

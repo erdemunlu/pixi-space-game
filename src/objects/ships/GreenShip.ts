@@ -40,7 +40,7 @@ export default class GreenShip extends Ship {
             : Game.Instance.audioManager.playSound(this.deathSoundName);
         this.healthProgressBar.updateFillAmount(this.health);
     }
-    setStrategies() {
+    setStrategies(): void {
         this.attackStrategy = new AttackStrategyGreenShip();
         this.moveStrategy = new MoveStrategyGreenShip();
     }

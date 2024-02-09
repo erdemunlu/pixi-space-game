@@ -10,13 +10,13 @@ export class EnemyController {
         Game.Instance.app.ticker.add((delta) => this.gameLoop(delta), this);
     }
 
-    gameLoop(delta: number) {
+    gameLoop(delta: number): void {
         if (Game.Instance.stateManager.getCurrentState() === GameState.Playing) {
             this.handleEnemy(delta);
         }
     }
 
-    handleEnemy(delta: number) {
+    handleEnemy(delta: number): void {
         for (let i = 0; i < this.enemyShips.length; i++) {
             this.enemyShips[i]?.move(delta);
             this.enemyShips[i]?.attack();

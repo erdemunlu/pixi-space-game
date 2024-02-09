@@ -33,11 +33,11 @@ export class EnemyShipStrong extends Ship {
             : Game.Instance.audioManager.playSound(this.deathSoundName);
     }
 
-    setStrategies() {
+    setStrategies(): void {
         this.moveStrategy = new MoveStrategyEnemyStrongShip(this.speed, this.moveDirection);
         this.attackStrategy = new AttackStrategyEnemyStrongShip();
     }
-    setVisual() {
+    setVisual(): void {
         this.setSprite(new Sprite(Texture.from("enemy_ship_strong.png")));
         this.sprite.anchor.set(0.5, 0.5);
         this.hitboxCollider = new HitboxCollider(

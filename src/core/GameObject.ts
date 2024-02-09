@@ -14,7 +14,7 @@ export default class GameObject extends Container {
         return this.sprite;
     }
 
-    setSprite(sprite: Sprite) {
+    setSprite(sprite: Sprite): void {
         this.removeChild(this.sprite);
 
         this.sprite = sprite;
@@ -43,7 +43,7 @@ export default class GameObject extends Container {
         }
     }
 
-    destroy(options: IDestroyOptions) {
+    destroy(options: IDestroyOptions): void {
         super.destroy(options);
     }
 }
@@ -79,7 +79,7 @@ class Transformer {
         this.gameObject.rotation = value;
     }
 
-    set(x: number, y: number) {
+    set(x: number, y: number): void {
         this.gameObject.position.x = x;
         this.gameObject.position.y = y;
     }

@@ -14,7 +14,7 @@ export default class Bullet extends GameObject implements ICollide {
         super();
     }
 
-    initialize(sprite: Sprite, point: Point, direction: number, speed: number, damage: number) {
+    initialize(sprite: Sprite, point: Point, direction: number, speed: number, damage: number): void {
         this.setSprite(sprite);
         this.sprite.anchor.set(0.5, 0.5);
         this.point = point;

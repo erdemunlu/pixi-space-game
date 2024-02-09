@@ -8,7 +8,7 @@ export class BulletPool {
         this.createBulletPool();
     }
 
-    createBulletPool() {
+    createBulletPool(): void {
         let bullet: Bullet;
         for (let i = 0; i < this.bulletAmount; i++) {
             bullet = new Bullet();
@@ -31,7 +31,7 @@ export class BulletPool {
         return newBullet;
     }
 
-    getBulletInfo() {
+    getBulletInfo(): void {
         console.log("Bullets count: " + this.bulletPool.length);
     }
 }

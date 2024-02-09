@@ -39,7 +39,7 @@ export default class OrangeShip extends Ship {
             : Game.Instance.audioManager.playSound(this.deathSoundName);
         this.healthProgressBar.updateFillAmount(this.health);
     }
-    setStrategies() {
+    setStrategies(): void {
         this.attackStrategy = new AttackStrategyOrangeShip();
         this.moveStrategy = new MoveStrategyOrangeShip();
     }

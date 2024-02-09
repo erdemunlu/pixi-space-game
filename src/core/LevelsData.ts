@@ -16,7 +16,7 @@ export class LevelsData {
             }
 
             this.levels.push(level);
-            this.debugLevel(level);
+            //this.debugLevel(level);
         });
     }
 

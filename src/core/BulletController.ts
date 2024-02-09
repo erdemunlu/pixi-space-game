@@ -15,7 +15,7 @@ export class BulletController {
         Game.Instance.app.ticker.add((delta) => this.update(delta), this);
     }
 
-    update(delta: number) {
+    update(delta: number): void {
         if (Game.Instance.stateManager.getCurrentState() === GameState.Playing) {
             this.handleBulletMovement(delta);
             this.handleCollision();
@@ -29,16 +29,16 @@ export class BulletController {
         }
     }
 
-    addBulletToActiveBullets(bullet: Bullet) {
+    addBulletToActiveBullets(bullet: Bullet): void {
         this.activeBullets.push(bullet);
     }
 
-    removeBulletFromActiveBullets(index: number) {
+    removeBulletFromActiveBullets(index: number): void {
         this.activeBullets[index].visible = false;
         this.activeBullets[index].transformer.set(-100, 0);
         this.activeBullets.splice(index, 1);
     }
-    removeShipFromActiveShips(index: number) {
+    removeShipFromActiveShips(index: number): void {
         const ship = this.activeShips[index];
         this.activeShips.splice(index, 1);
         ship.visible = false;
@@ -48,7 +48,7 @@ export class BulletController {
         this.activeShips = ships;
     }
 
-    handleBulletMovement(delta: number) {
+    handleBulletMovement(delta: number): void {
         for (let i = 0; i < this.activeBullets.length; i++) {
             const bullet = this.activeBullets[i];
             bullet.position = new Point(bullet.position.x, bullet.position.y + bullet.speed * bullet.direction * delta);
@@ -62,7 +62,7 @@ export class BulletController {
         }
     }
 
-    handleCollision() {
+    handleCollision(): void {
         for (let i = 0; i < this.activeBullets.length; i++) {
             for (let j = 0; j < this.activeShips.length; j++) {
                 if (this.activeBullets[i]?.hitboxCollider.isCollidingWith(this.activeShips[j]?.hitboxCollider)) {
